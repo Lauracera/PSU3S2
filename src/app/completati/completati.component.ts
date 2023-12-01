@@ -16,17 +16,20 @@ export class CompletatiComponent implements OnInit, DoCheck {
 
   constructor(private todosSrv: TodosService) {}
 
-  ngOnInit(): void {}
-
-  async ngDoCheck() {
+  async ngOnInit() {
     this.vrb = true;
     await this.todosSrv.wait();
     this.vrb = false;
+  }
+
+  ngDoCheck(): void {
     this.todos = this.todosSrv.getTaskList();
   }
 
   addTask() {
+    this.vrb = true;
     this.todosSrv.addTask(this.task);
+    this.vrb = false;
   }
 
   async change(id: number) {
