@@ -1,0 +1,15 @@
+<ng-container *ngIf="vrb; else elseFalse">
+  <p>aspetta...</p>
+</ng-container>
+<ng-template #elseFalse>
+  <div>
+    <input type="text" [(ngModel)]="task" />
+    <button type="button" (click)="addTask()">+</button>
+    <div *ngFor="let task of todos">
+      <div *ngIf="task.completed">
+        <p>{{ task.title }}</p>
+        <button (click)="change(task.id)">FCKSJHFKSHFKSHFFH</button>
+      </div>
+    </div>
+  </div></ng-template
+>
