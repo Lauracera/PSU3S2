@@ -12,12 +12,16 @@ export class CompletatiComponent implements OnInit, DoCheck {
   title: any = '';
   todos: Todo[] = [];
   task: string = '';
+  vrb: boolean = false;
 
   constructor(private todosSrv: TodosService) {}
 
   ngOnInit(): void {}
 
-  ngDoCheck(): void {
+  async ngDoCheck() {
+    this.vrb = true;
+    await this.todosSrv.wait();
+    this.vrb = false;
     this.todos = this.todosSrv.getTaskList();
   }
 
@@ -25,7 +29,8 @@ export class CompletatiComponent implements OnInit, DoCheck {
     this.todosSrv.addTask(this.task);
   }
 
-  change(id: number) {
+  async change(id: number) {
+    await this.todosSrv.wait();
     this.todosSrv.change(id);
     console.log(this.todosSrv.todos);
   }

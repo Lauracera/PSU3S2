@@ -15,28 +15,26 @@ export class TodosService {
 
   newTask: any = '';
   constructor() {}
-
-  getTaskList(): any {
-    return this.todos;
-  }
-
   wait(): Promise<void> {
     return new Promise<void>((resolve) => {
       setTimeout(() => {
         resolve();
-      }, 2000);
+      }, 1500);
     });
-  }
-
-  addTask(data: string) {
-    this.count++;
-    let newTask: Todo = { id: this.count, title: data, completed: true };
-    this.todos.push(newTask);
   }
 
   change(id: number) {
     this.todos = this.todos.map((task) =>
       task.id === id ? { ...task, completed: !task.completed } : task
     );
+  }
+  getTaskList(): any {
+    return this.todos;
+  }
+
+  addTask(data: string) {
+    this.count++;
+    let newTask: Todo = { id: this.count, title: data, completed: true };
+    this.todos.push(newTask);
   }
 }

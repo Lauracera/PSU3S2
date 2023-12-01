@@ -35,7 +35,8 @@ export class TodosComponent implements OnInit, DoCheck {
     this.todosSrv.addTask(this.task);
   }
 
-  change(id: number) {
+  async change(id: number) {
+    await this.todosSrv.wait();
     this.todosSrv.change(id);
     console.log(this.todosSrv.todos);
   }
