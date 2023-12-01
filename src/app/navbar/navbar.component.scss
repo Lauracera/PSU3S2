@@ -1,2 +1,22 @@
-.classA {
+nav {
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+}
+h1 {
+  color: rgb(64, 64, 135);
+  font-weight: bold;
+}
+.paddingH {
+  padding-left: 32px;
+}
+a {
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 25px;
+
+  color: white;
+}
+
+a:hover {
+  color: rgb(90, 90, 90);
 }

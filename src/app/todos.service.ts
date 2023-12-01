@@ -37,4 +37,13 @@ export class TodosService {
     let newTask: Todo = { id: this.count, title: data, completed: true };
     this.todos.push(newTask);
   }
+
+  removeTodo(id: number): Promise<any> {
+    return new Promise((resolve) => {
+      setTimeout(() => {
+        this.todos = this.todos.filter((todo) => todo.id !== id);
+        resolve(this.todos);
+      }, 2000);
+    });
+  }
 }

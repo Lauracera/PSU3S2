@@ -37,4 +37,10 @@ export class CompletatiComponent implements OnInit, DoCheck {
     this.todosSrv.change(id);
     console.log(this.todosSrv.todos);
   }
+  async removeTodo(id: number) {
+    await this.todosSrv.wait();
+    this.todosSrv.removeTodo(id).then((updateTodo: Todo[]) => {
+      this.todos = updateTodo;
+    });
+  }
 }

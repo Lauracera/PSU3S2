@@ -1,11 +1,10 @@
-<nav class="d-flex justify-content-center justify-content-around">
-  <a [routerLink]="['/']" routerLinkActive="active" class="text-black classA"
-    >Todos</a
-  >
-  <a
-    [routerLink]="['/completati']"
-    routerLinkActive="active"
-    class="text-black classA"
-    >Completed</a
-  >
+<nav class="d-flex flex-column justify-content-center">
+  <h1 class="paddingH">My ToDo List</h1>
+
+  <div class="d-flex justify-content-center justify-content-around">
+    <a [routerLink]="['/']" routerLinkActive="active" class="classA">Todos</a>
+    <a [routerLink]="['/completati']" routerLinkActive="active" class="classA"
+      >Completed</a
+    >
+  </div>
 </nav>
